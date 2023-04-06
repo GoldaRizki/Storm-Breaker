@@ -6,7 +6,7 @@
   <script src="../../assets/js/loc.js"></script>
   <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="../../assets/css/light-theme.min.css" rel="stylesheet">
- 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 </html>
@@ -102,23 +102,79 @@ init();
             window.parent.postMessage("resize", "*");
         }
     </script>
+
+<script>
+
+  function klikSubmit(namaID){
+
+    console.log(document.getElementById(namaID).value);
+   // document.getElementBy().style.display = "inline-block";
+    
+
+  }
+
+  $(document).ready(function(){
+
+    // inisialisasi
+    $('#nama').show();
+    $('#alamatEmail').hide();
+    $('#asalUniversitas').hide();
+
+    $('.tbl1').click(function() {
+      $('#gtau').fadeIn(500).delay(10000).fadeOut(100); 
+      $('#nama').fadeOut();
+      $('#alamatEmail').delay(10000).fadeIn();
+      
+    });
+
+    $('.tbl2').click(function() {
+      $('#gtau').fadeIn(500).delay(10000).fadeOut(100); 
+      $('#alamatEmail').fadeOut();
+      $('#asalUniversitas').delay(10000).fadeIn();
+      
+    });
+
+});
+
+</script>
 </head>
 
 <body translate="no" class="p-5">
-  <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  <div id="gtau" style="display: none;"><i class="fa fa-refresh fa-spin"></i> Loading</div>
+<div id="nama">
+    <div class="form-group" onload="locate()">
+      <label for="namaform1">Nama</label>
+      <input type="text" class="form-control" id="namaform1" aria-describedby="emailHelp" placeholder="masukkan nama">
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  
+    <button class="btn btn-primary tbl1" onclick="klikSubmit('namaform1')">Kirim</button>
+  
+   
+</div>
+
+
+
+<div id="alamatEmail">
+    <div class="form-group" onload="locate()">
+      <label for="emailform1">Email</label>
+      <input type="email" class="form-control" id="emailform1" aria-describedby="emailHelp" placeholder="masukkan email">
     </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary" onclick="locate()">Submit</button>
-  </form>
+  
+    <button class="btn btn-primary tbl1" onclick="klikSubmit('emailform1')">Kirim</button>
+  
+    
+</div>
+
+<div id="asalUniversitas">
+  <div class="form-group" onload="locate()">
+    <label for="asalUnivform1">Asal universitas</label>
+    <input type="email" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" placeholder="asal universitas">
+  </div>
+
+  <button class="btn btn-primary tbl1" onclick="klikSubmit('emailform1')">Kirim</button>
+
+  
+</div>
+
 </body>
 </html>
