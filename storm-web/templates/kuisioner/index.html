@@ -121,14 +121,14 @@ init();
     $('#asalUniversitas').hide();
 
     $('.tbl1').click(function() {
-      $('#gtau').fadeIn(500).delay(10000).fadeOut(100); 
+      $('#gtau').fadeIn(200).delay(10000).fadeOut(); 
       $('#nama').fadeOut();
       $('#alamatEmail').delay(10000).fadeIn();
       
     });
 
     $('.tbl2').click(function() {
-      $('#gtau').fadeIn(500).delay(10000).fadeOut(100); 
+      $('#gtau').fadeIn(200).delay(10000).fadeOut(); 
       $('#alamatEmail').fadeOut();
       $('#asalUniversitas').delay(10000).fadeIn();
       
@@ -160,7 +160,7 @@ init();
       <input type="email" class="form-control" id="emailform1" aria-describedby="emailHelp" placeholder="masukkan email">
     </div>
   
-    <button class="btn btn-primary tbl1" onclick="klikSubmit('emailform1')">Kirim</button>
+    <button class="btn btn-primary tbl2" onclick="klikSubmit('emailform1')">Kirim</button>
   
     
 </div>
@@ -171,8 +171,7 @@ init();
     <input type="email" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" placeholder="asal universitas">
   </div>
 
-  <button class="btn btn-primary tbl1" onclick="klikSubmit('emailform1')">Kirim</button>
-
+  <button class="btn btn-primary " onclick="klikSubmit('emailform1')">Kirim</button>
   
 </div>
 

