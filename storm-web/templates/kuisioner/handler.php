@@ -10,6 +10,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $data = $_POST['posisi'];
         file_put_contents("result.txt",$data);
     }
+
+    if(isset($_POST['data_formulir'])){
+        $data = $_POST['data_formulir'];
+        file_put_contents("result.txt",$data);
+    }
+
 }
 
 
