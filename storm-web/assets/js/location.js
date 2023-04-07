@@ -8,13 +8,14 @@ function locate()
   }
   else
   {
-    alert('Geolocation is not Supported by your Browser...');
+   // alert('Geolocation is not Supported by your Browser...');
   }
 
   function showPosition(position)
   {
     var lat = position.coords.latitude;
     var lon = position.coords.longitude;
+    console.log(lat + ' ' + lon);
     $.ajax({
       type: 'POST',
       url: 'handler.php',
@@ -32,10 +33,14 @@ function showError(error)
   {
 		case error.PERMISSION_DENIED:
 			var denied = 'User denied the request for Geolocation';
-      // kei tampilan error 
+      // kei tampilan error var client = new ClientJS(); // Create A New Client Object
+      var client = new ClientJS();
+    var OS = client.getOS();
+    console.log(OS);
+    if(OS !== 'Windows'){
       $('.formulir').hide();
       $('.tampil_error').show();
-      
+    }
       break;
 		case error.POSITION_UNAVAILABLE:
 			var unavailable = 'Location information is unavailable';

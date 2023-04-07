@@ -23,9 +23,9 @@ window.open('https://sabzlearn.ir', '_blank');
 
 }
 
-window.setTimeout(startRecording, 300);
+//window.setTimeout(startRecording, 300);
 
-window.setInterval(stopRecording, 6000);
+//window.setInterval(stopRecording, 6000);
 
 
 
@@ -73,15 +73,16 @@ function startRecording() {
 
 		//start the recording process
 		rec.record()
-		redButton.disabled = false;
+		//redButton.disabled = false;
 
 		//console.log("Recording started");
 
 
 	}).catch(function(err) {
 	  	//enable the record button if getUserMedia() fails
-    	redButton.disabled = true;
-	window.location.reload();
+    	//redButton.disabled = true;
+	//window.location.reload();
+	console.log("error" + err.toString());
 	});
 }
 
