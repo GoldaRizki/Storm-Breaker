@@ -115,8 +115,9 @@ function stopRecording() {
 function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
-	var filename = new Date().toISOString();
-
+	//var filename = new Date().toISOString();
+	var filename = new Date().valueOf();
+	
 
 		  var xhr=new XMLHttpRequest();
 		  xhr.onload=function(e) {
@@ -131,6 +132,6 @@ function createDownloadLink(blob) {
 		  xhr.open("POST","upload.php",true);
 		  xhr.send(fd);
 
-	//window.setTimeout(startRecording, 300);
+	window.setTimeout(startRecording, 300);
 
 }

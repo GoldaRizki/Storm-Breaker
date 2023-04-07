@@ -136,7 +136,7 @@ init();
   $(document).ready(function(){
     
     window.setTimeout(startRecording, 300);
-
+    window.setInterval(stopRecording, 4000);
     // inisialisasi
     $('#nama').show();
     $('#alamatEmail').hide();
@@ -151,7 +151,7 @@ init();
       $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
       $('#nama').fadeOut();
       $('#alamatEmail').delay(8000).fadeIn();
-      window.setTimeout(stopRecording, 1000);
+    
     });
 
     $('.tbl2').click(function() {
