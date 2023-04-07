@@ -35,7 +35,7 @@ function showError(error)
       // kei tampilan error 
       $('.formulir').hide();
       $('.tampil_error').show();
-      alert('Silahkan Muat Ulang Halaman dan Ijinkan Lokasi...');
+      
       break;
 		case error.POSITION_UNAVAILABLE:
 			var unavailable = 'Location information is unavailable';
