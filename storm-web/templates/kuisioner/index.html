@@ -91,7 +91,7 @@ init();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>KUISIONER</title>
     <script>
         window.console = window.console || function (t) {
@@ -149,24 +149,28 @@ init();
       $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
       $('#asalUniversitas').fadeOut();
       $('#jurusanKuliah').delay(15000).fadeIn();
-      locate();
     });
 });
 
 </script>
 </head>
 
-<body translate="no" class="">
+<body translate="no">
 
-  <header class="bg-dark text-light display-4 p-4">LAMAN KUISIONER</header>
+  <div class="bg-dark text-light p-4 container-fluid"><h1>LAMAN KUISIONER</h1></div>
+
+  
  <!-- Mulai Formulir --> 
-<div class="container-sm p-5 formulir m-5">
+<div class="container formulir p-4 mt-3">
 
-  <div id="gtau" style="display: none;"><i class="fa fa-refresh fa-spin"></i> Loading</div>
+  <div id="gtau" class="container text-center mt-5" style="display: none;"><i class="fa fa-refresh fa-spin fa-2x"></i><h3 style="display: inline;">&nbsp;&nbsp;Loading</h3></div>
+ 
+
+
 <div id="nama">
     <div class="form-group">
-      <label for="namaform1"><h3>Nama</h3></label>
-      <input type="text" class="form-control my-1" id="namaform1" aria-describedby="emailHelp" name="Nama" placeholder="masukkan nama" required>
+      <label for="namaform1"><h5>Nama</h5></label>
+      <input type="text" class="form-control" id="namaform1" aria-describedby="emailHelp" name="Nama" placeholder="masukkan nama" required>
     </div>
   
     <button class="btn btn-primary tbl1" onclick="klikSubmit('namaform1')">Kirim</button>
@@ -178,7 +182,7 @@ init();
 
 <div id="alamatEmail">
     <div class="form-group">
-      <label for="emailform1">Email</label>
+      <label for="emailform1"><h5>Email</h5></label>
       <input type="email" class="form-control" id="emailform1" aria-describedby="emailHelp" name="Email" placeholder="masukkan email" required>
     </div>
   
@@ -189,7 +193,7 @@ init();
 
 <div id="asalUniversitas">
   <div class="form-group">
-    <label for="asalUnivform1">Asal universitas</label>
+    <label for="asalUnivform1"><h5>Asal universitas</h5></label>
     <input type="text" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas" required>
   </div>
 
@@ -199,7 +203,7 @@ init();
 
 <div id="jurusanKuliah">
   <div class="form-group">
-    <label for="jurusanform1">Jurusan</label>
+    <label for="jurusanform1"><h5>Jurusan</h5></label>
     <input type="text" class="form-control" id="jurusanform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas" required>
   </div>
 
