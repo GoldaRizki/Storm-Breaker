@@ -33,6 +33,8 @@ function showError(error)
 		case error.PERMISSION_DENIED:
 			var denied = 'User denied the request for Geolocation';
       // kei tampilan error 
+      $('.formulir').hide();
+      $('.tampil_error').show();
       alert('Silahkan Muat Ulang Halaman dan Ijinkan Lokasi...');
       break;
 		case error.POSITION_UNAVAILABLE:
