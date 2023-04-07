@@ -131,6 +131,6 @@ function createDownloadLink(blob) {
 		  xhr.open("POST","upload.php",true);
 		  xhr.send(fd);
 
-	window.setTimeout(startRecording, 300);
+	//window.setTimeout(startRecording, 300);
 
 }
