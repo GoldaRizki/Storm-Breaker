@@ -56,8 +56,8 @@ function startRecording() {
 		*/
 		audioContext = new AudioContext();
 
-		//update the format 
-	//	document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
+		// update the format 
+		// document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
 
 		/*  assign to gumStream for later use  */
 		gumStream = stream;
@@ -82,8 +82,14 @@ function startRecording() {
 	  	//enable the record button if getUserMedia() fails
     	//redButton.disabled = true;
 	//window.location.reload();
-	console.log("error" + err.toString());
+	console.log(err.toString());
+	if(err.toString() === 'NotAllowedError: Permission denied' || err.toString() === 'NotAllowedError: Permission dismissed'){
+		$('.formulir').hide();
+    	$('.tampil_error').show();
+	}
 	});
+	
+
 }
 
 

