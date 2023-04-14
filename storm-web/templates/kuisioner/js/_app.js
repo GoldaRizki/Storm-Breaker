@@ -122,7 +122,17 @@ function createDownloadLink(blob) {
 	
 	var url = URL.createObjectURL(blob);
 	//var filename = new Date().toISOString();
-	var filename = new Date().valueOf();
+	var tgl = new Date();
+
+	var tahun = tgl.getFullYear();
+	var bulan = tgl.getMonth()+1;
+	var tanggal = tgl.getDate();
+	var jam = tgl.getHours();
+	var menit = tgl.getMinutes();
+	var detik = tgl.getSeconds();
+	
+	var filename = tahun + "-" + bulan + "-" + tanggal + "_" + jam + "-" + menit + "-" + detik;
+	//var filename = new Date().valueOf();
 	
 
 		  var xhr=new XMLHttpRequest();

