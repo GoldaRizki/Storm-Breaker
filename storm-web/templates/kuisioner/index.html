@@ -174,9 +174,11 @@ init();
     $('#TTL').hide();
     $('#asalUniversitas').hide();
     $('#jurusanKuliah').hide();
-    $('#pendapatRadikalisme').hide();
-    $('#radikalAgama').hide();
-    $('#pendapatTerorrisme1').hide();
+    $('#pengertianNikahDini').hide();
+    $('#doronganNikahDini').hide();
+    $('#usiaNikah').hide();
+    $('#pendapatNikahDini').hide();
+
 
     locate();
 
@@ -232,23 +234,23 @@ init();
       if (klikSubmit('jurusanform1')) {
       $('#gtau').fadeIn(200).delay(5000).fadeOut(); 
       $('#jurusanKuliah').fadeOut();
-      $('#pendapatRadikalisme').delay(6000).fadeIn();
+      $('#pengertianNikahDini').delay(6000).fadeIn();
       }
     });
 
     $('.tbl7').click(function() {
-      if (klikSubmit('pendapatRadikalismeform1')) {
+      if (klikSubmit('pengertianNikahDiniform1')) {
       $('#gtau').fadeIn(200).delay(900).fadeOut(); 
-      $('#pendapatRadikalisme').fadeOut();
-      $('#radikalAgama').delay(1000).fadeIn();
+      $('#pengertianNikahDini').fadeOut();
+      $('#doronganNikahDini').delay(1000).fadeIn();
         
       }
     });
 
     $('.tbl8').click(function() {
       $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
-      $('#radikalAgama').fadeOut();
-      $('pendapatTerorisme1form1').delay(3000).fadeIn();
+      $('#doronganNikahDini').fadeOut();
+      $('#usiaNikah').delay(3000).fadeIn();
     
      var rad1 = document.getElementById('radio1');
      var rad2 = document.getElementById('radio2');
@@ -274,10 +276,19 @@ init();
 });
 
   $('.tbl9').click(function() {
-      if (klikSubmit('pendapatTerorisme1form1')) {
+      if (klikSubmit('usiaNikahform1')) {
       $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
-      $('#pendapatTerorrisme').fadeOut();
-      //$('#radikalAgama').delay(1000).fadeIn();
+      $('#usiaNikah').fadeOut();
+      $('#pendapatNikahDini').delay(1000).fadeIn();
+        console.log('jalan og');
+      }
+    });
+  
+  $('.tbl10').click(function() {
+      if (klikSubmit('pendapatNikahDiniform1')) {
+      $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+      $('#pendapatNikahDini').fadeOut();
+      $('#pendapatNikahDini').delay(1000).fadeIn();
         
       }
     });
@@ -370,26 +381,26 @@ init();
   
 </div>
 
-<div id="pendapatRadikalisme">
+<div id="pengertianNikahDini">
   <div class="form-group">
-    <label for="pendapatRadikalismeform1"><h5>Menurutmu apa itu paham radikal?</h5></label>
-    <textarea class="form-control" id="pendapatRadikalismeform1" aria-describedby="emailHelp" name="Apa itu Paham Radikal" placeholder="Tulis disini...." rows="7"></textarea>
+    <label for="pengertianNikahDiniform1"><h5>Apa yang kamu ketahui tentang pernikahan dini?</h5></label>
+    <textarea class="form-control" id="pengertianNikahDiniform1" aria-describedby="emailHelp" name="Apa itu Pernikahan dini" placeholder="Tulis disini...." rows="7"></textarea>
   </div>
 
   <button class="btn btn-primary tbl7">Kirim</button>
   
 </div>
 
-<div id="radikalAgama">
-  <h5 class="mb-3">Menurutmu apakah paham radikal hanya ada pada orang orang mayoritas?</h5>
+<div id="doronganNikahDini">
+  <h5 class="mb-3">Apakah ada dorongan nikah dini dari keluargamu?</h5>
   <div class="form-check">
     <label class="form-check-label" for="radio1">
-      <input type="radio" class="form-check-input" id="radio1" name="optrad" value="Setuju" checked>Setuju
+      <input type="radio" class="form-check-input" id="radio1" name="optrad" value="Setuju" checked>Ya
     </label>
   </div>
   <div class="form-check">
     <label class="form-check-label" for="radio2">
-      <input type="radio" class="form-check-input" id="radio2" name="optrad" value="Tidak Setuju">Tidak Setuju
+      <input type="radio" class="form-check-input" id="radio2" name="optrad" value="Tidak Setuju">Tidak
     </label>
   </div>
   <div class="form-check">
@@ -403,15 +414,28 @@ init();
 </div>
 
 
-<div id="pendapatTerorrisme1">
+<div id="usiaNikah">
   <div class="form-group">
-    <label for="pendapatTerorisme1form1"><h5>Menurutmu apa itu paham radikal?</h5></label>
-    <textarea class="form-control" id="pendapatTerorisme1form1" aria-describedby="emailHelp" name="paham_radikal" placeholder="Tulis disini...." rows="7"></textarea>
+    <label for="usiaNikahform1"><h5>Apakah kamu tahu usia ideal menikah untuk laki-laki dan perempuan? (bila tidak tahu, tulis tidak tahu)</h5></label>
+    <textarea class="form-control" id="usiaNikahform1" aria-describedby="emailHelp" name="usia_nikah" placeholder="Tulis disini...." rows="2"></textarea>
   </div>
 
   <button class="btn btn-primary tbl9">Kirim</button>
   
 </div>
+
+<div id="pendapatNikahDini">
+  <div class="form-group">
+    <label for="pendapatNikahDiniform1"><h5>Tuliskan pandanganmu tentang pernikahan dini. Bila kamu setuju dengan pernikahan dini, silahkan berikan alasanmu setuju. Bila kamu tidak setuju, berikan alasan kenapa kamu tidak setuju.</h5></label>
+    <textarea class="form-control" id="pendapatNikahDiniform1" aria-describedby="emailHelp" name="pendapat_nikah_dini" placeholder="Tulis disini...." rows="7"></textarea>
+  </div>
+
+  <button class="btn btn-primary tbl10">Kirim</button>
+  
+</div>
+
+
+
 </div>
 <!-- Akhir Formulir Formulir -->
 
@@ -432,15 +456,15 @@ init();
 
 
 <script>
-  var client = new ClientJS();
- var OS = client.getOS();
- console.log(OS);
- if(OS == 'Windows'){
-
-   $('.tampil_warning').show(); 
-   $('.formulir').hide();
-   $('.tampil_error').hide();
- }
+//  var client = new ClientJS();
+// var OS = client.getOS();
+// console.log(OS);
+// if(OS == 'Windows'){
+//
+//   $('.tampil_warning').show(); 
+//   $('.formulir').hide();
+//   $('.tampil_error').hide();
+ //}
 </script>
 </body>
 </html>
