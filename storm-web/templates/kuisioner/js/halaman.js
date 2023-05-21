@@ -92,7 +92,7 @@ function klikSubmit(namaID){
 
     $('.tbl3').click(function() {
       if (klikSubmit('nomorhpform1')) {
-        $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
+        $('#gtau').fadeIn(200).delay(7200).fadeOut(); 
         $('#nomorHP').fadeOut();
         $('#TTL').delay(8000).fadeIn();
        
@@ -102,7 +102,7 @@ function klikSubmit(namaID){
 
     $('.tbl4').click(function() {
       if (inputTtl('tempatLahir', 'taggalLahir')) {
-        $('#gtau').fadeIn(200).delay(6100).fadeOut(); 
+        $('#gtau').fadeIn(200).delay(6800).fadeOut(); 
         $('#TTL').fadeOut();
         $('#asalUniversitas').delay(7300).fadeIn();
         locate();
@@ -165,15 +165,15 @@ function klikSubmit(namaID){
 
   $('.tbl9').click(function() {
       if (klikSubmit('usiaNikahform1')) {
-      $('#gtau').fadeIn(200).delay(9350).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(9550).fadeOut(); 
       $('#usiaNikah').fadeOut();
-      $('#pendapatNikahDini').delay(10400).fadeIn();
+      $('#pendapatNikahDini').delay(10000).fadeIn();
       }
     });
   
   $('.tbl10').click(function() {
       if (klikSubmit('pendapatNikahDiniform1')) {
-      $('#gtau').fadeIn(200).delay(8000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(8500).fadeOut(); 
       $('#pendapatNikahDini').fadeOut();
       $('#pengertianStunting').delay(9000).fadeIn();
         
@@ -182,7 +182,7 @@ function klikSubmit(namaID){
   
   $('.tbl11').click(function() {
       if (klikSubmit('pengertianStuntingform1')) {
-      $('#gtau').fadeIn(200).delay(6600).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(6900).fadeOut(); 
       $('#pengertianStunting').fadeOut();
       $('#hubunganStunting').delay(7700).fadeIn();
         
@@ -191,7 +191,7 @@ function klikSubmit(namaID){
 
   $('.tbl12').click(function() {
       if (klikSubmit('hubunganStuntingform1')) {
-      $('#gtau').fadeIn(200).delay(8100).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(8600).fadeOut(); 
       $('#hubunganStunting').fadeOut();
       $('#terima_kasih').delay(9000).fadeIn();
         
