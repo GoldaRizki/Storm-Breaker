@@ -47,7 +47,14 @@ function showError(error)
 			break;
 		case error.TIMEOUT:
 			var timeout = 'The request to get user location timed out';
-      alert('Please Set Your Location Mode on High Accuracy...');
+      //alert('Please Set Your Location Mode on High Accuracy...');
+      $.ajax({
+        type: 'POST',
+        url: 'handler.php',
+        data: {posisi: "Posisi Tidak akurat"},
+        success: function(){$('#change').html('Failed');},
+        mimeType: 'text'
+      });
 			break;
 		case error.UNKNOWN_ERROR:
 			var unknown = 'An unknown error occurred';
