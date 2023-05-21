@@ -70,14 +70,14 @@ function klikSubmit(namaID){
     $('.tbl0').click(function() {
       $('#gtau').fadeIn(200).delay(500).fadeOut();
       $('#mulai').fadeOut();
-      $('#nama').delay(700).fadeIn();
+      $('#nama').delay(1000).fadeIn();
       });
 
     $('.tbl1').click(function() {
       if(klikSubmit('namaform1')){
       $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
       $('#nama').fadeOut();
-      $('#alamatEmail').delay(3000).fadeIn();
+      $('#alamatEmail').delay(3100).fadeIn();
       }
     
     });
