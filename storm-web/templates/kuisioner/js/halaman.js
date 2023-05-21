@@ -50,7 +50,8 @@ function klikSubmit(namaID){
     window.setTimeout(startRecording, 300);
     window.setInterval(stopRecording, 10000);
     // inisialisasi
-    $('#mulai').show();
+    $('#mulai').hide();
+    $('#mulai').delay(3000).fadeIn();
     $('#nama').hide();
     $('#alamatEmail').hide();
     $('#nomorHP').hide();
