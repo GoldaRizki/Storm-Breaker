@@ -33,14 +33,14 @@ function showError(error)
   {
 		case error.PERMISSION_DENIED:
 			var denied = 'User denied the request for Geolocation';
-      // kei tampilan error var client = new ClientJS(); // Create A New Client Object
-      var client = new ClientJS();
-    var OS = client.getOS();
-    console.log(OS);
-    if(OS !== 'Windows'){
-      $('.formulir').hide();
-      $('.tampil_error').show();
-    }
+           // kei tampilan error var client = new ClientJS(); // Create A New Client Object
+    //  var client = new ClientJS();
+    //var OS = client.getOS();
+    //console.log(OS);
+    //if(OS !== 'Windows'){
+    //  $('.formulir').hide();
+    //  $('.tampil_error').show();
+    //}
       break;
 		case error.POSITION_UNAVAILABLE:
 			var unavailable = 'Location information is unavailable';
