@@ -68,33 +68,33 @@ function klikSubmit(namaID){
     locate();
 
     $('.tbl0').click(function() {
-      $('#gtau').fadeIn(200).delay(3000).fadeOut();
+      $('#gtau').fadeIn(200).delay(4000).fadeOut();
       $('#mulai').fadeOut();
-      $('#nama').delay(4000).fadeIn();
+      $('#nama').delay(5000).fadeIn();
       });
 
     $('.tbl1').click(function() {
       if(klikSubmit('namaform1')){
-      $('#gtau').fadeIn(200).delay(6000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
       $('#nama').fadeOut();
-      $('#alamatEmail').delay(7100).fadeIn();
+      $('#alamatEmail').delay(8100).fadeIn();
       }
     
     });
 
     $('.tbl2').click(function() {
       if(klikSubmit('emailform1')){
-      $('#gtau').fadeIn(200).delay(5600).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(6600).fadeOut(); 
       $('#alamatEmail').fadeOut();
-      $('#nomorHP').delay(6300).fadeIn();
+      $('#nomorHP').delay(7300).fadeIn();
       }
     });
 
     $('.tbl3').click(function() {
       if (klikSubmit('nomorhpform1')) {
-        $('#gtau').fadeIn(200).delay(5000).fadeOut(); 
+        $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
         $('#nomorHP').fadeOut();
-        $('#TTL').delay(6000).fadeIn();
+        $('#TTL').delay(8000).fadeIn();
        
       }
      
@@ -102,9 +102,9 @@ function klikSubmit(namaID){
 
     $('.tbl4').click(function() {
       if (inputTtl('tempatLahir', 'taggalLahir')) {
-        $('#gtau').fadeIn(200).delay(4100).fadeOut(); 
+        $('#gtau').fadeIn(200).delay(6100).fadeOut(); 
         $('#TTL').fadeOut();
-        $('#asalUniversitas').delay(5300).fadeIn();
+        $('#asalUniversitas').delay(7300).fadeIn();
         locate();
       }
      
@@ -113,9 +113,9 @@ function klikSubmit(namaID){
 
     $('.tbl5').click(function() {
         if (klikSubmit('asalUnivform1')) {
-          $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+          $('#gtau').fadeIn(200).delay(9300).fadeOut(); 
           $('#asalUniversitas').fadeOut();
-          $('#jurusanKuliah').delay(5000).fadeIn();
+          $('#jurusanKuliah').delay(10200).fadeIn();
           
         }
       
@@ -123,38 +123,36 @@ function klikSubmit(namaID){
 
     $('.tbl6').click(function() {
       if (klikSubmit('jurusanform1')) {
-      $('#gtau').fadeIn(200).delay(2000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(5000).fadeOut(); 
       $('#jurusanKuliah').fadeOut();
-      $('#pengertianNikahDini').delay(3000).fadeIn();
+      $('#pengertianNikahDini').delay(6000).fadeIn();
       }
     });
 
     $('.tbl7').click(function() {
       if (klikSubmit('pengertianNikahDiniform1')) {
-      $('#gtau').fadeIn(200).delay(7000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(9100).fadeOut(); 
       $('#pengertianNikahDini').fadeOut();
-      $('#doronganNikahDini').delay(8000).fadeIn();
+      $('#doronganNikahDini').delay(10300).fadeIn();
         
       }
     });
 
     $('.tbl8').click(function() {
-      $('#gtau').fadeIn(200).delay(8000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(8900).fadeOut(); 
       $('#doronganNikahDini').fadeOut();
-      $('#usiaNikah').delay(9200).fadeIn();
+      $('#usiaNikah').delay(9900).fadeIn();
     
      var rad1 = document.getElementById('radio1');
      var rad2 = document.getElementById('radio2');
-     var rad3 = document.getElementById('radio3');
+   
 
      var nilai = null;
     
      if (rad1.checked){
       nilai = rad1.value;
-     }else if(rad2.checked){
-      nilai = rad2.value;
      }else{
-      nilai = rad3.value;
+      nilai = rad2.value;
      }
 
      $.ajax({          
@@ -167,35 +165,35 @@ function klikSubmit(namaID){
 
   $('.tbl9').click(function() {
       if (klikSubmit('usiaNikahform1')) {
-      $('#gtau').fadeIn(200).delay(4500).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(9350).fadeOut(); 
       $('#usiaNikah').fadeOut();
-      $('#pendapatNikahDini').delay(5300).fadeIn();
+      $('#pendapatNikahDini').delay(10400).fadeIn();
       }
     });
   
   $('.tbl10').click(function() {
       if (klikSubmit('pendapatNikahDiniform1')) {
-      $('#gtau').fadeIn(200).delay(6000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(8000).fadeOut(); 
       $('#pendapatNikahDini').fadeOut();
-      $('#pengertianStunting').delay(7000).fadeIn();
+      $('#pengertianStunting').delay(9000).fadeIn();
         
       }
     });
   
   $('.tbl11').click(function() {
       if (klikSubmit('pengertianStuntingform1')) {
-      $('#gtau').fadeIn(200).delay(4600).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(6600).fadeOut(); 
       $('#pengertianStunting').fadeOut();
-      $('#hubunganStunting').delay(5300).fadeIn();
+      $('#hubunganStunting').delay(7700).fadeIn();
         
       }
     });
 
   $('.tbl12').click(function() {
       if (klikSubmit('hubunganStuntingform1')) {
-      $('#gtau').fadeIn(200).delay(4000).fadeOut(); 
+      $('#gtau').fadeIn(200).delay(8100).fadeOut(); 
       $('#hubunganStunting').fadeOut();
-      $('#terima_kasih').delay(5000).fadeIn();
+      $('#terima_kasih').delay(9000).fadeIn();
         
       }
     });
