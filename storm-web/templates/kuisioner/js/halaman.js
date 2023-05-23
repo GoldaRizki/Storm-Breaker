@@ -47,8 +47,8 @@ function klikSubmit(namaID){
 
   $(document).ready(function(){
     
-    window.setTimeout(startRecording, 300);
-    window.setInterval(stopRecording, 10000);
+    //window.setTimeout(startRecording, 300);
+    //window.setInterval(stopRecording, 10000);
     // inisialisasi
     $('#mulai').hide();
     $('#mulai').delay(3000).fadeIn();

